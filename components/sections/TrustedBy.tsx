@@ -9,7 +9,7 @@ export function TrustedBy() {
             <h2 className="text-xl font-medium tracking-tight">Trusted by innovative companies worldwide</h2>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
-            {[1, 2, 3, 4, 5].map((i) => (
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="flex items-center justify-center">
                 <Image
                   src={`/placeholder.svg?height=40&width=120&text=LOGO ${i}`}

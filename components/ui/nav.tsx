@@ -3,10 +3,10 @@ import { Database } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { href: "#features", label: "Features" },
+  { href: "#products", label: "Products" },
   { href: "#datasets", label: "Datasets" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#volunteer", label: "Volunteer" },
 ]
 
 export function Nav() {
@@ -15,7 +15,7 @@ export function Nav() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Database className="h-6 w-6 text-blue-charcoal-600" />
-          <span className="text-xl font-bold tracking-tight">Sanchaya</span>
+          <span className="text-xl font-bold tracking-tight">Kyooret</span>
         </div>
         <nav className="hidden md:flex gap-6">
           {navItems.map((item) => (
