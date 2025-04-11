@@ -1,16 +1,28 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 
 export default function VerifyPage() {
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""))
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
   const [timer, setTimer] = useState(30)
   const [canResend, setCanResend] = useState(false)
   const inputRefs = useRef<(HTMLInputElement | null)[]>([])
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const mobile = searchParams.get("mobile")
 
   useEffect(() => {
+    if (!mobile) {
+      router.push("/login")
+      return
+    }
+
     const interval = setInterval(() => {
       setTimer((prev) => {
         if (prev <= 1) {
@@ -23,7 +35,7 @@ export default function VerifyPage() {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [mobile, router])
 
   const handleOtpChange = (value: string, index: number) => {
     const newOtp = [...otp]
@@ -42,20 +54,69 @@ export default function VerifyPage() {
     }
   }
 
-  const handleResendOtp = () => {
-    setTimer(30)
-    setCanResend(false)
-    // Add your OTP resend logic here
-  }
+  const handleResendOtp = async () => {
+    if (!mobile) return
 
-  const handleVerify = async () => {
+    setError("")
     setIsLoading(true)
     try {
-      // Add your verification logic here
-      await new Promise((resolve) => setTimeout(resolve, 1000)) // Simulated API call
+      const response = await fetch('/api/auth/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mobile }),
+      })
+
+      const result = await response.json()
+      if (!result.success) {
+        setError(result.message)
+      } else {
+        setTimer(30)
+        setCanResend(false)
+        setOtp(Array(6).fill(""))
+        inputRefs.current[0]?.focus()
+      }
+    } catch (err) {
+      setError("Failed to resend OTP")
     } finally {
       setIsLoading(false)
     }
+  }
+
+  const handleVerify = async () => {
+    if (!mobile) return
+
+    setError("")
+    setIsLoading(true)
+    try {
+      const otpString = otp.join("")
+      const response = await fetch('/api/auth/verify-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ mobile, otp: otpString }),
+      })
+
+      const result = await response.json()
+      if (!result.success) {
+        setError(result.message)
+      } else {
+        // Store the token in localStorage
+        localStorage.setItem('token', result.token)
+        // Redirect to dashboard
+        router.push('/dashboard')
+      }
+    } catch (err) {
+      setError("Failed to verify OTP")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  if (!mobile) {
+    return null
   }
 
   return (
@@ -66,7 +127,7 @@ export default function VerifyPage() {
             Verify your number
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            Enter the 6-digit code sent to your mobile number
+            Enter the 6-digit code sent to {mobile}
           </p>
         </div>
 
@@ -91,6 +152,12 @@ export default function VerifyPage() {
             </div>
           </div>
 
+          {error && (
+            <div className="text-sm text-red-600 text-center">
+              {error}
+            </div>
+          )}
+
           <div className="flex items-center justify-between">
             <div className="text-sm">
               <Link href="/login" className="font-medium text-teal-600 hover:text-teal-500">
@@ -101,7 +168,8 @@ export default function VerifyPage() {
               {canResend ? (
                 <button
                   onClick={handleResendOtp}
-                  className="font-medium text-teal-600 hover:text-teal-500"
+                  disabled={isLoading}
+                  className="font-medium text-teal-600 hover:text-teal-500 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Resend OTP
                 </button>
