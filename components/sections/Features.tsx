@@ -6,12 +6,12 @@ export function Features() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-teal-100 px-3 py-1 text-sm text-teal-700">Features</div>
+            <div className="inline-block rounded-lg bg-teal-100 mb-2 px-8 py-2 text-md text-teal-700">Features</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
               Everything you need for data-driven decisions
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Sanchaya provides a comprehensive platform for accessing, analyzing, and leveraging curated datasets.
+              Kyooret provides a comprehensive platform for accessing, analyzing, and leveraging curated datasets.
             </p>
           </div>
         </div>

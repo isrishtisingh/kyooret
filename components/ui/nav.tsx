@@ -35,7 +35,7 @@ export function Nav() {
           >
             Login
           </Link>
-          <Button>Get Started</Button>
+          <Button>Explore</Button>
         </div>
       </div>
     </header>

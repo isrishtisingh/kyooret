@@ -14,11 +14,11 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <TrustedBy />
+        {/* <TrustedBy /> */}
         <Features />
         <Datasets />
         <Pricing />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <CTA />
       </main>
       <Footer />

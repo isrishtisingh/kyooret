@@ -2,7 +2,7 @@ export function Testimonials() {
   const testimonials = [
     {
       quote:
-        "Sanchaya has transformed how we approach market research. The quality of their datasets is unmatched.",
+        "Kyooret has transformed how we approach market research. The quality of their datasets is unmatched.",
       author: "Sarah Johnson",
       title: "Chief Data Officer, FinTech Solutions",
     },
@@ -14,7 +14,7 @@ export function Testimonials() {
     },
     {
       quote:
-        "As a healthcare provider, data quality and compliance are critical. Sanchaya delivers on both fronts.",
+        "As a healthcare provider, data quality and compliance are critical. Kyooret delivers on both fronts.",
       author: "Dr. Emily Rodriguez",
       title: "Director of Research, MedLife Group",
     },
@@ -26,13 +26,13 @@ export function Testimonials() {
     },
     {
       quote:
-        "Sanchaya's platform has become an essential part of our decision-making process across all departments.",
+        "Kyooret's platform has become an essential part of our decision-making process across all departments.",
       author: "Lisa Patel",
       title: "CEO, Strategic Consulting Partners",
     },
     {
       quote:
-        "The ROI we've seen since implementing Sanchaya has exceeded our expectations. Highly recommended.",
+        "The ROI we've seen since implementing Kyooret has exceeded our expectations. Highly recommended.",
       author: "James Wilson",
       title: "CFO, Manufacturing Excellence",
     },
@@ -48,7 +48,7 @@ export function Testimonials() {
               Trusted by data-driven organizations
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              See what our customers have to say about their experience with Sanchaya.
+              See what our customers have to say about their experience with Kyooret.
             </p>
           </div>
         </div>

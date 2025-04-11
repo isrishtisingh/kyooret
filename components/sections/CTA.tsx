@@ -7,18 +7,18 @@ export function CTA() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-              Ready to unlock the power of curated data?
+              India’s biggest AI dataset community.
             </h2>
             <p className="max-w-[600px] text-teal-100 md:text-xl/relaxed">
-              Join thousands of organizations using Sanchaya to make better, data-driven decisions.
+            Empowering developers and researchers to shape the future of South Asian AI.
             </p>
           </div>
           <div className="flex flex-col gap-2 min-[400px]:flex-row">
             <Button size="lg" className="bg-white text-teal-600 hover:bg-teal-50">
-              Get Started
+             Explore Datasets
             </Button>
             <Button size="lg" variant="outline" className="text-white border-white hover:bg-teal-700">
-              Schedule a Demo
+             Contribute Data
             </Button>
           </div>
         </div>

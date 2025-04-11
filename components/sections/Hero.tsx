@@ -22,11 +22,11 @@ export function Hero() {
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Button size="lg" className="gap-2" variant="default">
-                Get Started
+                Explore
                 <ChevronRight className="h-4 w-4" />
               </Button>
               <Button size="lg" variant="outline">
-                Learn More
+                Contribute
               </Button>
             </div>
           </div>

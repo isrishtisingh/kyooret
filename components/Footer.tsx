@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container flex flex-col items-center justify-center gap-4 px-4 md:px-6 md:flex-row md:justify-between">
         <div className="flex items-center gap-2">
           <Database className="h-6 w-6 text-teal-600" />
-          <span className="text-xl font-bold tracking-tight">Sanchaya</span>
+          <span className="text-xl font-bold tracking-tight">Kyooret</span>
         </div>
         <nav className="flex gap-4 sm:gap-6">
           <Link href="#" className="text-xs hover:underline underline-offset-4">
@@ -21,7 +21,7 @@ export function Footer() {
           </Link>
         </nav>
         <div className="text-center text-sm text-muted-foreground md:text-left">
-          &copy; {new Date().getFullYear()} Sanchaya. All rights reserved.
+          &copy; {new Date().getFullYear()} Kyooret. All rights reserved.
         </div>
       </div>
     </footer>

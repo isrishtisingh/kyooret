@@ -4,41 +4,44 @@ import { Button } from "@/components/ui/button"
 export function Pricing() {
   const plans = [
     {
-      name: "Starter",
-      price: "$99",
-      description: "Perfect for individuals and small teams just getting started",
+      name: "Community",
+      price: "Free",
+      description: "Open source datasets for research and development",
       features: [
-        "Access to 50+ datasets",
-        "Basic analytics tools",
-        "Standard API access",
-        "Email support",
-        "1 user",
+        "Access to free datasets",
+        "Limited datasets options",
+        "Free guides and tutorial ",
+        "Open source contributions",
+        "Basic API access",
+        "Research license",
       ],
       highlighted: false,
     },
     {
-      name: "Professional",
+      name: "Commercial",
       price: "$299",
-      description: "Ideal for growing businesses with advanced data needs",
+      description: "Premium datasets for commercial applications",
       features: [
-        "Access to 150+ datasets",
-        "Advanced analytics dashboard",
+        "High-quality datasets",
+        "Large-scale data collections",
         "Priority API access",
-        "Priority support",
-        "5 users",
+        "Technical support",
+        "Commercial license",
+        "Regular updates",
       ],
       highlighted: true,
     },
     {
-      name: "Enterprise",
+      name: "Custom",
       price: "Custom",
-      description: "Tailored solutions for large organizations with complex requirements",
+      description: "Tailored solutions for enterprises and governments",
       features: [
-        "Full dataset library access",
-        "Custom dataset integration",
-        "Dedicated API infrastructure",
-        "24/7 dedicated support",
-        "Unlimited users",
+        "Custom dataset development",
+        "Domain-specific collections",
+        "Dedicated support team",
+        "Custom API integration",
+        "Enterprise license",
+        "SLA guarantees",
       ],
       highlighted: false,
     },
@@ -49,12 +52,12 @@ export function Pricing() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-teal-100 px-3 py-1 text-sm text-teal-700">Pricing</div>
+            <div className="inline-block rounded-lg bg-teal-100 mb-2 px-8 py-2 text-md text-teal-700">Pricing</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
               Choose the right plan for your needs
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Flexible pricing options designed to scale with your data requirements.
+            <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed">
+              From open source to enterprise solutions, we have the right data for your project.
             </p>
           </div>
         </div>
@@ -67,18 +70,20 @@ export function Pricing() {
               }`}
             >
               <div className="mb-4">
-                <h3 className="text-xl font-bold">{plan.name}</h3>
+                <h3 className="text-xl font-bold text-gray-900">{plan.name}</h3>
                 <div className="mt-4 flex items-baseline text-gray-900">
                   <span className="text-3xl font-bold tracking-tight">{plan.price}</span>
-                  {plan.price !== "Custom" && <span className="ml-1 text-xl text-muted-foreground">/month</span>}
+                  {plan.price !== "Custom" && plan.price !== "Free" && (
+                    <span className="ml-1 text-xl text-gray-600">/month</span>
+                  )}
                 </div>
-                <p className="mt-4 text-sm text-muted-foreground">{plan.description}</p>
+                <p className="mt-4 text-sm text-gray-600">{plan.description}</p>
               </div>
               <ul className="mb-6 mt-6 space-y-4 flex-1">
                 {plan.features.map((feature, j) => (
                   <li key={j} className="flex items-center">
                     <ChevronRight className="mr-2 h-4 w-4 text-teal-600" />
-                    <span className="text-sm">{feature}</span>
+                    <span className="text-sm text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -86,7 +91,7 @@ export function Pricing() {
                 className={plan.highlighted ? "bg-teal-600 hover:bg-teal-700" : ""}
                 variant={plan.highlighted ? "default" : "outline"}
               >
-                {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
+                {plan.price === "Custom" ? "Contact Sales" : plan.price === "Free" ? "Get Started" : "Subscribe"}
               </Button>
             </div>
           ))}

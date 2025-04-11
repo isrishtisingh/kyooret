@@ -46,7 +46,7 @@ export function Datasets() {
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <div className="inline-block rounded-lg bg-teal-100 px-3 py-1 text-sm text-teal-700">Datasets</div>
+            <div className="inline-block rounded-lg bg-teal-100 mb-2 px-8 py-2 text-md text-teal-700">Datasets</div>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
               Explore our premium dataset collections
             </h2>
