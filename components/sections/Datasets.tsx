@@ -4,40 +4,40 @@ import { Button } from "@/components/ui/button"
 export function Datasets() {
   const datasets = [
     {
-      title: "Financial Markets",
-      description: "Historical and real-time financial data from global markets",
-      count: "250+ datasets",
-      color: "bg-amber-100",
+      title: "Facial Dataset",
+      description: "Annotated face images for diverse South Asian skin tones.",
+      count: "10000+ images",
+      color: "bg-rose-100",
     },
     {
-      title: "Healthcare Analytics",
-      description: "Comprehensive healthcare and medical research data",
-      count: "180+ datasets",
+      title: "Age & Gender Recognition",
+      description: "Labeled images and annotations for demographic classification models.",
+      count: "10000+ images",
+      color: "bg-violet-100",
+    },
+    {
+      title: "Regional India",
+      description: "Region-wise datasets capturing linguistic and visual diversity.",
+      count: "5000+ images",
+      color: "bg-yellow-100",
+    },
+    {
+      title: "Women Safety",
+      description: "Census, incident reports and survey data on female safety.",
+      count: "Coming Soon",
       color: "bg-teal-100",
     },
     {
-      title: "Consumer Behavior",
-      description: "Insights into consumer trends and purchasing patterns",
-      count: "120+ datasets",
-      color: "bg-cyan-100",
+      title: "Healthcare Analytics",
+      description: "Comprehensive healthcare and medical research data.",
+      count: "Coming Soon",
+      color: "bg-teal-100",
     },
     {
       title: "Environmental Data",
-      description: "Climate, sustainability, and environmental metrics",
-      count: "200+ datasets",
+      description: "Climate, sustainability, and environmental metrics.",
+      count: "Coming Soon",
       color: "bg-emerald-100",
-    },
-    {
-      title: "Supply Chain",
-      description: "Global supply chain and logistics intelligence",
-      count: "150+ datasets",
-      color: "bg-blue-100",
-    },
-    {
-      title: "Technology Trends",
-      description: "Data on emerging technologies and digital transformation",
-      count: "175+ datasets",
-      color: "bg-indigo-100",
     },
   ]
 
@@ -50,8 +50,8 @@ export function Datasets() {
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
               Explore our premium dataset collections
             </h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-              Browse through our diverse range of high-quality datasets curated for various industries and use cases.
+            <p className="max-w-[900px] text-gray-600 md:text-xl/relaxed">
+              Browse through our diverse range of high-quality datasets curated for developers, researchers, enterprises and governments.
             </p>
           </div>
         </div>
@@ -63,11 +63,11 @@ export function Datasets() {
             >
               <div className={`absolute inset-0 ${dataset.color} opacity-50`} />
               <div className="relative p-6">
-                <h3 className="text-xl font-bold">{dataset.title}</h3>
-                <p className="mt-2 text-muted-foreground">{dataset.description}</p>
+                <h3 className="text-xl font-bold text-gray-900">{dataset.title}</h3>
+                <p className="mt-2 text-gray-600">{dataset.description}</p>
                 <p className="mt-4 font-medium text-teal-600">{dataset.count}</p>
-                <Button variant="ghost" className="mt-4 group-hover:bg-teal-100">
-                  Explore Collection
+                <Button variant="ghost" className="mt-4 bg-teal-600 group-hover:bg-teal-700">
+                  Explore
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
