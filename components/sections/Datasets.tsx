@@ -6,38 +6,38 @@ export function Datasets() {
     {
       title: "Facial Dataset",
       description: "Annotated face images for diverse South Asian skin tones.",
-      count: "10000+ images",
-      color: "bg-rose-100",
+      count: "5000+ images",
+      color: "bg-teal-100",
     },
     {
       title: "Age & Gender Recognition",
       description: "Labeled images and annotations for demographic classification models.",
-      count: "10000+ images",
+      count: "5000+ images",
       color: "bg-violet-100",
     },
     {
       title: "Regional India",
       description: "Region-wise datasets capturing linguistic and visual diversity.",
-      count: "5000+ images",
+      count: "1000+ images",
       color: "bg-yellow-100",
     },
     {
       title: "Women Safety",
       description: "Census, incident reports and survey data on female safety.",
       count: "Coming Soon",
-      color: "bg-teal-100",
+      color: "bg-rose-100",
     },
     {
       title: "Healthcare Analytics",
       description: "Comprehensive healthcare and medical research data.",
       count: "Coming Soon",
-      color: "bg-teal-100",
+      color: "bg-green-100",
     },
     {
       title: "Environmental Data",
       description: "Climate, sustainability, and environmental metrics.",
       count: "Coming Soon",
-      color: "bg-emerald-100",
+      color: "bg-blue-100",
     },
   ]
 

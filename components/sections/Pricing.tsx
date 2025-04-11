@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Pricing() {
   const plans = [
@@ -16,6 +17,7 @@ export function Pricing() {
         "Research license",
       ],
       highlighted: false,
+      href: "/datasets"
     },
     {
       name: "Commercial",
@@ -30,6 +32,7 @@ export function Pricing() {
         "Regular updates",
       ],
       highlighted: true,
+      href: "/resources/contact"
     },
     {
       name: "Custom",
@@ -44,6 +47,7 @@ export function Pricing() {
         "SLA guarantees",
       ],
       highlighted: false,
+      href: "/resources/contact"
     },
   ]
 
@@ -87,12 +91,14 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
-              <Button
-                className={plan.highlighted ? "bg-teal-600 hover:bg-teal-700" : ""}
-                variant={plan.highlighted ? "default" : "outline"}
-              >
-                {plan.price === "Custom" ? "Contact Sales" : plan.price === "Free" ? "Get Started" : "Subscribe"}
-              </Button>
+              <Link href={plan.href}>
+                <Button
+                  className={`w-full ${plan.highlighted ? "bg-teal-600 hover:bg-teal-700" : ""}`}
+                  variant={plan.highlighted ? "default" : "outline"}
+                >
+                  {plan.price === "Custom" ? "Contact Sales" : plan.price === "Free" ? "Get Started" : "Contact Sales"}
+                </Button>
+              </Link>
             </div>
           ))}
         </div>

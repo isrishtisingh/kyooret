@@ -15,7 +15,7 @@ const userDatasets = [
         description: "Annotated face images for diverse South Asian skin tones.",
         size: "10GB",
         format: "JPG",
-        count: "10000+ images",
+        count: "5000+ images",
         downloadUrl: "#"
     },
     {
@@ -24,7 +24,7 @@ const userDatasets = [
         description: "Labeled images and annotations for demographic classification models.",
         size: "5GB",
         format: "JPG",
-        count: "10000+ images",
+        count: "5000+ images",
         downloadUrl: "#"
     }
 ]

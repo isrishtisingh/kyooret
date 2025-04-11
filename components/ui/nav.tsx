@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Database, User, LogOut, ChevronDown } from "lucide-react"
+import { Database, User, LogOut, ChevronDown, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
@@ -10,6 +10,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 const navItems = [
   { href: "/products", label: "Products" },
@@ -50,6 +57,8 @@ export function Nav() {
           <Database className="h-6 w-6 text-blue-charcoal-600" />
           <span className="text-xl font-bold tracking-tight">Kyooret</span>
         </Link>
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
           {navItems.map((item) => (
             <Link
@@ -82,7 +91,77 @@ export function Nav() {
             </Link>
           )}
         </nav>
-        <div className="flex items-center gap-4">
+
+        {/* Mobile Navigation */}
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <SheetHeader>
+                <SheetTitle>Menu</SheetTitle>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 mt-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm font-medium transition-colors hover:text-blue-charcoal-600"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+                <div className="space-y-2">
+                  <p className="text-sm font-medium">Resources</p>
+                  {resourceItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block pl-4 text-sm font-medium transition-colors hover:text-blue-charcoal-600"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+                {isLoggedIn && (
+                  <Link
+                    href="/dashboard"
+                    className="text-sm font-medium transition-colors hover:text-blue-charcoal-600"
+                  >
+                    Dashboard
+                  </Link>
+                )}
+                {isLoggedIn ? (
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={handleLogout}
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Logout
+                  </Button>
+                ) : (
+                  <div className="space-y-2">
+                    <Link href="/login" className="block">
+                      <Button variant="outline" className="w-full">
+                        Login
+                      </Button>
+                    </Link>
+                    <Link href="/signup" className="block">
+                      <Button className="w-full">Sign Up</Button>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        {/* Desktop Auth Buttons */}
+        <div className="hidden md:flex items-center gap-4">
           {isLoggedIn ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -119,7 +198,9 @@ export function Nav() {
               </Link>
             </div>
           )}
+          <Link href="/datasets">
           <Button>Explore</Button>
+          </Link>
         </div>
       </div>
     </header>

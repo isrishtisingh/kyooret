@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function Hero() {
   return (
@@ -16,18 +17,22 @@ export function Hero() {
                 Access high-quality data to power your AI.
                 <br/>
                 <span className="text-blue-charcoal-100 font-semibold italic tracking-wide">
-                  "It's made for the people by the people."
+                  Made for the people by the people.
                 </span>
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Button size="lg" className="gap-2" variant="default">
-                Explore
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline">
-                Contribute
-              </Button>
+              <Link href="/datasets">
+                <Button size="lg" className="gap-2" variant="default">
+                  Explore
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/dashboard">
+                <Button size="lg" variant="outline">
+                  Contribute
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="flex items-center justify-center">
