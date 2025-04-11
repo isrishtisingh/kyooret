@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Database, User, LogOut } from "lucide-react"
+import { Database, User, LogOut, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
@@ -12,10 +12,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const navItems = [
-  { href: "#products", label: "Products" },
-  { href: "#datasets", label: "Datasets" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#volunteer", label: "Volunteer" },
+  { href: "/products", label: "Products" },
+  { href: "/datasets", label: "Datasets" },
+  { href: "/pricing", label: "Pricing" },
+]
+
+const resourceItems = [
+  { href: "/resources/about", label: "About" },
+  { href: "/resources/contact", label: "Contact" },
 ]
 
 export function Nav() {
@@ -56,6 +60,19 @@ export function Nav() {
               {item.label}
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium transition-colors hover:text-blue-charcoal-600">
+              Resources
+              <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {resourceItems.map((item) => (
+                <DropdownMenuItem key={item.href} asChild>
+                  <Link href={item.href}>{item.label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           {isLoggedIn && (
             <Link
               href="/dashboard"

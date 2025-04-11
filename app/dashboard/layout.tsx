@@ -1,14 +1,11 @@
-import { Nav } from "@/components/ui/nav"
+import { ReactNode } from "react"
 
-export default function DashboardLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
+export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
         <div className="min-h-screen">
-            <Nav />
-            <main>{children}</main>
+            <main className="container py-6">
+                {children}
+            </main>
         </div>
     )
 } 
